@@ -8,7 +8,14 @@ import {
   templateUrl: './product-list.component.html'
 })
 export class ProductListComponent {
+  toggleImage(): void {
+    this.showImage = !this.showImage;
+  };
+  listFilter: string = 'cart';
   pageTitle: string = "Products list";
+  imageWidth:  number = 50;
+  imageMargin: number = 2;
+  showImage: boolean = false;
   products: any[] = [{
       "productId": 1,
       "productName": "Leaf Rake",
