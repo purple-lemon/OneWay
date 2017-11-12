@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from './components/Button'
+import { Card,GitCardsApp } from './components/git_cards/git_form'
 import logo from './logo.svg';
 import './App.css';
 
@@ -16,6 +17,7 @@ class App extends Component {
         </p>
         <p>
           <Button />
+          <GitCardsApp />
         </p>
       </div>
     );
