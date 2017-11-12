@@ -22,19 +22,23 @@ export const CardList = (props) => {
 }
 
 export class GitForm extends React.Component{
-	state = {
-		userName: ""
+	constructor(props){
+		super(props);
+		this.state = {
+			userName: ""
+		};
+		this.handleSubmit = (event) => {
+			event.preventDefault();
+			var k = this.nameInput.value;
+			axios.get('https://api.github.com/users/' + this.state.userName).then(
+				resp=>{
+					this.props.onSubmit(resp.data);
+					this.setState({userName: ''})
+					console.log(resp);
+				});
+		};
 	}
-	handleSubmit = (event) => {
-		event.preventDefault();
-		var k = this.nameInput.value;
-		axios.get('https://api.github.com/users/' + this.state.userName).then(
-			resp=>{
-				this.props.onSubmit(resp.data);
-				this.setState({userName: ''})
-				console.log(resp);
-			});
-	};
+	
 	render(){
 		return (
 			<form onSubmit={this.handleSubmit}>
@@ -52,18 +56,21 @@ export class GitForm extends React.Component{
 }
 
 export class GitCardsApp extends React.Component {
-	state = {
-		cards:[{
-			name: "Paul",
-			avatar_url: "http://placehold.it/75",
-			company: "Facebook"
-		}]
-	};
+	constructor (props) {
+		super(props);
+		this.state = {
+			cards:[{
+				name: "Paul",
+				avatar_url: "http://placehold.it/75",
+				company: "Facebook"
+			}]
+		};
 
-	addNewCard = (cardInfo) => {
-		this.setState(prevState=>({
-			cards: prevState.cards.concat(cardInfo)
-		}))
+		this.addNewCard = (cardInfo) => {
+			this.setState(prevState=>({
+				cards: prevState.cards.concat(cardInfo)
+			}))
+		}
 	}
 	render(){
 		return (
