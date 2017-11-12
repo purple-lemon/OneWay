@@ -59,11 +59,7 @@ export class GitCardsApp extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			cards:[{
-				name: "Paul",
-				avatar_url: "http://placehold.it/75",
-				company: "Facebook"
-			}]
+			cards:[]
 		};
 
 		this.addNewCard = (cardInfo) => {

@@ -2,22 +2,29 @@ var path = require('path');
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
+var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
 var destDir = "bin";
-var scriptsDir = destDir + "/static/js/";
+var scriptsDir = "static/js/";
 
 module.exports = {
   entry: './src/index.js',
-  output: { path: __dirname, filename: scriptsDir + 'bundle.js' },
+  output: { 
+    path: __dirname + "/bin", 
+    filename: scriptsDir + 'bundle.js',
+    publicPath: "/bin/"
+   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: destDir + "/index.html",
-      template: "public/index.html"
+      filename: "index.html",
+      template: "public/index.html",
+      favicon: "public/favicon.ico"
     }),
-    new ManifestPlugin({
-      fileName: destDir + '/manifest.json',
-      basePath: destDir
-    })
+    new InterpolateHtmlPlugin({
+      PUBLIC_URL: ""
+      // You can pass any key-value pairs, this was just an example.
+      // WHATEVER: 42 will replace %WHATEVER% with 42 in index.html.
+    }),
   ],
   module: {
     loaders: [
