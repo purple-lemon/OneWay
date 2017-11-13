@@ -12,7 +12,8 @@ module.exports = {
   output: { 
     path: DIST_DIR, 
     filename: scriptsDir + 'bundle.js',
-    publicPath: "/bin/"
+    publicPath: "/bin/",
+    sourceMapFilename: scriptsDir + 'bundle.map.js'
    },
   plugins: [
     new HtmlWebpackPlugin({
@@ -26,6 +27,7 @@ module.exports = {
       // WHATEVER: 42 will replace %WHATEVER% with 42 in index.html.
     }),
   ],
+  devtool: '#source-map',
   module: {
     loaders: [
       {
