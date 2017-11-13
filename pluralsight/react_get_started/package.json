@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "start:dev": "webpack-dev-server",
+    "start:dev": "webpack-dev-server --port 3033 --open --content-base bin/",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

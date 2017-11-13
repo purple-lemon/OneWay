@@ -4,13 +4,13 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 
-var destDir = "bin";
+var DIST_DIR = path.resolve(__dirname, "bin");
 var scriptsDir = "static/js/";
 
 module.exports = {
   entry: './src/index.js',
   output: { 
-    path: __dirname + "/bin", 
+    path: DIST_DIR, 
     filename: scriptsDir + 'bundle.js',
     publicPath: "/bin/"
    },
