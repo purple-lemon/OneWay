@@ -16,6 +16,13 @@ module.exports = {
     sourceMapFilename: scriptsDir + 'bundle.map.js'
    },
   plugins: [
+    // new webpack.ProvidePlugin({
+    //   $: 'jquery',
+    //   jQuery: 'jquery',
+    //   'window.jQuery': 'jquery',
+    //   Popper: ['popper.js', 'default'],
+    //   // In case you imported plugins individually, you must also require them here:
+    // }),
     new HtmlWebpackPlugin({
       filename: "index.html",
       template: "public/index.html",

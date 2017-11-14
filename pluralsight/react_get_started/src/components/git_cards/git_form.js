@@ -49,7 +49,7 @@ export class GitForm extends React.Component{
 					userName: event.target.value 
 				})}
 				/>
-				<button type="submit">Add card</button>
+				<button className="btn" type="submit">Add card</button>
 			</form>
 		)
 	}
