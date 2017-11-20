@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ManifestPlugin = require('webpack-manifest-plugin');
 var InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var DIST_DIR = path.resolve(__dirname, "bin");
 var scriptsDir = "static/js/";
@@ -33,6 +34,7 @@ module.exports = {
       // You can pass any key-value pairs, this was just an example.
       // WHATEVER: 42 will replace %WHATEVER% with 42 in index.html.
     }),
+    new ExtractTextPlugin("styles.css")
   ],
   devtool: '#source-map',
   module: {
