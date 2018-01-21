@@ -35,6 +35,7 @@ module.exports = {
       // You can pass any key-value pairs, this was just an example.
       // WHATEVER: 42 will replace %WHATEVER% with 42 in index.html.
     }),
+    new ExtractTextPlugin("styles.css")
   ],
   devtool: '#source-map',
   module: {
